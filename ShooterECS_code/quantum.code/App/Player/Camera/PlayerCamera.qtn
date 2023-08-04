@@ -1,0 +1,7 @@
+component PlayerCamera
+{
+    player_ref PlayerRef;
+    entity_ref PlayerEntity;
+    FPVector3 Offset;
+    FP PitchAngle;
+}

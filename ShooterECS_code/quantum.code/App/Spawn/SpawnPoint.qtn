@@ -1,0 +1,9 @@
+component SpawnPoint
+{
+    SpawnPointData Data;
+}
+
+struct SpawnPointData
+{
+    bool IsBusy;
+}

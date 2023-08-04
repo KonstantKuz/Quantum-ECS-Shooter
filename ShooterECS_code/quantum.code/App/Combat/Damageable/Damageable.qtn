@@ -1,0 +1,17 @@
+component Health
+{
+    FP Current;
+}
+
+struct DamageInfo 
+{
+    FP Value;
+}
+
+struct ContinuousDamageInfo : DamageInfo
+{
+    FP Duration;
+    FP Period;
+}
+
+signal OnDamage(entity_ref source, entity_ref target, DamageInfo damageInfo);

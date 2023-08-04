@@ -1,0 +1,9 @@
+component Weapon
+{
+    asset_ref<WeaponData> Data;
+    entity_ref Barrel;
+}
+
+asset WeaponData;
+
+signal OnWeaponFire();

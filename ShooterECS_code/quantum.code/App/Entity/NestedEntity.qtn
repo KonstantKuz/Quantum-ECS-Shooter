@@ -1,0 +1,11 @@
+component NestedEntity
+{
+    entity_ref Parent;
+    FPVector3 LocalPosition;
+    FPVector3 LocalRotation;
+}
+
+component EntityRoot
+{
+    list<entity_ref> NestedEntities;
+}

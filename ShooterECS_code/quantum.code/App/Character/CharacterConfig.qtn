@@ -1,0 +1,6 @@
+component CharacterConfig
+{
+    asset_ref<CharacterConfigData> Data;
+}
+
+asset CharacterConfigData;

@@ -1,0 +1,4 @@
+component PlayerTag
+{
+    player_ref Player;
+}

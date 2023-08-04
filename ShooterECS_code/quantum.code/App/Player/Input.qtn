@@ -1,0 +1,7 @@
+input
+{
+    button Jump;
+    button Fire;
+    FPVector2 Direction;
+    FPVector2 MouseInput;
+}
