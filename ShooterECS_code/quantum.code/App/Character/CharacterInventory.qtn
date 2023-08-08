@@ -1,4 +1,0 @@
-component CharacterInventory
-{
-    Weapon Weapon;
-}

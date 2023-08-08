@@ -1812,7 +1812,6 @@ namespace Quantum {
     }
 
     partial void DumpUserData(ref String dump);
-    partial void SerializeUserData(BitStream stream);
 
     public static Byte[] ToByteArray(RuntimePlayer player) {
       BitStream stream;

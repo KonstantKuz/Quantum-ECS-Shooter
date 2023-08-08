@@ -41,6 +41,11 @@ MonoBehaviour:
         Id:
           Value: 5
       ResourcePath: DB/Configs/SimulationConfig
+    - Path: Resources/DB/Configs/Weapon/Rifle
+      AssetRef:
+        Id:
+          Value: 500814676170294350
+      ResourcePath: DB/Configs/Weapon/Rifle
     - Path: Resources/DB/Map1_mesh
       AssetRef:
         Id:
@@ -51,11 +56,11 @@ MonoBehaviour:
         Id:
           Value: 1128982389842898550
       ResourcePath: DB/Configs/Player/DefaultCharacterConfigData
-    - Path: Resources/DB/Configs/Weapon/Weapon
+    - Path: Resources/DB/Configs/Weapon/Pistol
       AssetRef:
         Id:
           Value: 1147139723015918425
-      ResourcePath: DB/Configs/Weapon/Weapon
+      ResourcePath: DB/Configs/Weapon/Pistol
     - Path: Resources/DB/Content/Character/PlayerCharacter|EntityView
       AssetRef:
         Id:

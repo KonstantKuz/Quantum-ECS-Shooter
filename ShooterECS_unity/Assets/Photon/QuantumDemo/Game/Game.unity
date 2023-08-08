@@ -494,6 +494,11 @@ MonoBehaviour:
     Camera:
       Id:
         Value: 1854223616777622222
+    Weapons:
+    - Id:
+        Value: 1147139723015918425
+    - Id:
+        Value: 500814676170294350
   PreloadAddressables: 0
   DynamicAssetDB:
     OnInitialDynamicAssetsRequested:

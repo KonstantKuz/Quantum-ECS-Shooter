@@ -6,31 +6,6 @@
 using System;
 namespace Quantum.Prototypes.Unity {
   [System.SerializableAttribute()]
-  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.CharacterInventory))]
-  public class CharacterInventory_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.CharacterInventory_Prototype> {
-    public Weapon_Prototype Weapon;
-
-    public sealed override Quantum.Prototypes.CharacterInventory_Prototype Convert(EntityPrototypeConverter converter) {
-      var result = new Quantum.Prototypes.CharacterInventory_Prototype();
-      result.Weapon = this.Weapon.Convert(converter);
-      return result;
-    }
-  }
-  [System.SerializableAttribute()]
-  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Weapon))]
-  public class Weapon_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Weapon_Prototype> {
-    public Quantum.AssetRefWeaponData Data;
-    [Quantum.LocalReference]
-    public global::EntityPrototype Barrel;
-
-    public sealed override Quantum.Prototypes.Weapon_Prototype Convert(EntityPrototypeConverter converter) {
-      var result = new Quantum.Prototypes.Weapon_Prototype();
-      result.Data = this.Data;
-      converter.Convert(this.Barrel, out result.Barrel);
-      return result;
-    }
-  }
-  [System.SerializableAttribute()]
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.EntityRoot))]
   public class EntityRoot_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.EntityRoot_Prototype> {
     [Quantum.Inspector.DynamicCollectionAttribute()]
@@ -40,6 +15,34 @@ namespace Quantum.Prototypes.Unity {
     public sealed override Quantum.Prototypes.EntityRoot_Prototype Convert(EntityPrototypeConverter converter) {
       var result = new Quantum.Prototypes.EntityRoot_Prototype();
       result.NestedEntities = System.Array.ConvertAll(this.NestedEntities, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Inventory))]
+  public class Inventory_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Inventory_Prototype> {
+    public Item_Prototype ActiveItem;
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    public Item_Prototype[] Items = System.Array.Empty<Item_Prototype>();
+
+    public sealed override Quantum.Prototypes.Inventory_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.Inventory_Prototype();
+      result.ActiveItem = this.ActiveItem.Convert(converter);
+      result.Items = System.Array.ConvertAll(this.Items, x => x.Convert(converter));
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Item))]
+  public class Item_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Item_Prototype> {
+    public System.Int32 Id;
+    [Quantum.LocalReference]
+    public global::EntityPrototype EntityRef;
+
+    public sealed override Quantum.Prototypes.Item_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.Item_Prototype();
+      result.Id = this.Id;
+      converter.Convert(this.EntityRef, out result.EntityRef);
       return result;
     }
   }

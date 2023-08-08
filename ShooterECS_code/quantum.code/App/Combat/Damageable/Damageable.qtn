@@ -14,4 +14,4 @@ struct ContinuousDamageInfo : DamageInfo
     FP Period;
 }
 
-signal OnDamage(entity_ref source, entity_ref target, DamageInfo damageInfo);
+signal OnDamage(entity_ref target, DamageInfo damageInfo);

@@ -13,6 +13,7 @@ namespace Quantum.App.Player
             var entity = CreatePlayer(frame, player, data);
             SetupCamera(frame, player, entity, data);
             PlacePlayer(frame, entity);
+            InitInventory(frame, entity, data);
         }
 
         private static EntityRef CreatePlayer(Frame frame, PlayerRef player, RuntimePlayer data)
@@ -29,6 +30,25 @@ namespace Quantum.App.Player
             playerCamera->PlayerRef = playerRef;
             playerCamera->PlayerEntity = player;
             frame.Unsafe.GetPointer<NestedEntity>(camera)->Parent = player;
+        }
+
+        private static void InitInventory(Frame frame, EntityRef player, RuntimePlayer runtimeData)
+        {
+            var inventory = frame.Unsafe.GetPointer<Quantum.Inventory>(player);
+            foreach (var data in runtimeData.Weapons)
+            {
+                var weaponData = frame.FindAsset<WeaponData>(data.Id);
+                var weaponEntity = frame.Create();
+                var weapon = new Weapon {Data = weaponData};
+                frame.Add(weaponEntity, weapon);
+                var item = new Item {Id = weaponData.Id, EntityRef = weaponEntity};
+                frame.Add(weaponEntity, item);
+                (*inventory).Add(frame, item);
+                if (inventory->ActiveItem.Equals(Item.None))
+                {
+                    inventory->ActiveItem = item;
+                }
+            }
         }
 
         private void PlacePlayer(Frame frame, EntityRef player)

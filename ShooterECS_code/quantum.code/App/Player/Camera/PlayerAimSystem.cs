@@ -2,7 +2,7 @@
 
 namespace Quantum.App.Player.Camera
 {
-    public class AimSystem : SystemMainThreadFilter<PlayerMovementSystem.PlayerFilter>
+    public class PlayerAimSystem : SystemMainThreadFilter<PlayerMovementSystem.PlayerFilter>
     {
         public override unsafe void Update(Frame f, ref PlayerMovementSystem.PlayerFilter filter)
         {
