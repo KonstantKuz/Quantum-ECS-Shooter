@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Quantum.App.Combat.Weapon;
 using Quantum.App.Entity;
 
 namespace Quantum.App.Player
@@ -29,7 +30,6 @@ namespace Quantum.App.Player
             var playerCamera = frame.Unsafe.GetPointer<PlayerCamera>(camera);
             playerCamera->PlayerRef = playerRef;
             playerCamera->PlayerEntity = player;
-            frame.Unsafe.GetPointer<NestedEntity>(camera)->Parent = player;
         }
 
         private static void InitInventory(Frame frame, EntityRef player, RuntimePlayer runtimeData)
@@ -37,12 +37,9 @@ namespace Quantum.App.Player
             var inventory = frame.Unsafe.GetPointer<Quantum.Inventory>(player);
             foreach (var data in runtimeData.Weapons)
             {
-                var weaponData = frame.FindAsset<WeaponData>(data.Id);
-                var weaponEntity = frame.Create();
-                var weapon = new Weapon {Data = weaponData};
-                frame.Add(weaponEntity, weapon);
-                var item = new Item {Id = weaponData.Id, EntityRef = weaponEntity};
-                frame.Add(weaponEntity, item);
+                var weapon = WeaponFactory.CreateWeapon(frame, data);
+                var item = new Item {Id = data.Id.Value, EntityRef = weapon};
+                frame.Add(weapon, item);
                 (*inventory).Add(frame, item);
                 if (inventory->ActiveItem.Equals(Item.None))
                 {
@@ -53,15 +50,12 @@ namespace Quantum.App.Player
 
         private void PlacePlayer(Frame frame, EntityRef player)
         {
-            var spawnPoints = GetSpawnPoints(frame)
-                .Where(it => !it.Component.Data.IsBusy).ToArray();
-            var rndIdx = new Random().Next(0, spawnPoints.Length - 1);
-            var rndPoint = spawnPoints[rndIdx];
-            // Offset the instantiated object in the world, based in its ID.
+            var emptyPoint = GetSpawnPoints(frame)
+                .First(it => !it.Component.Data.IsBusy);
             if (frame.Unsafe.TryGetPointer<Transform3D>(player, out var transform)
-                && frame.Unsafe.TryGetPointer<Transform3D>(rndPoint.Entity, out var spawnPoint))
+                && frame.Unsafe.TryGetPointer<Transform3D>(emptyPoint.Entity, out var spawnPoint))
             {
-                rndPoint.Component.Data.IsBusy = true;
+                emptyPoint.Component.Data.IsBusy = true;
                 transform->Position = spawnPoint->Position;
             }
         }

@@ -1,6 +1,5 @@
 component Aim
 {
     FPVector3 CurrentAim;
-    Boolean HasHit;
     Hit3D CurrentHit;
 }

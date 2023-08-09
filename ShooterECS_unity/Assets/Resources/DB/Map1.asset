@@ -88,6 +88,7 @@ MonoBehaviour:
   - Aim: []
     CharacterConfig: []
     EntityRoot: []
+    Grenade: []
     Health:
     - Current:
         RawValue: 6553600
@@ -96,6 +97,7 @@ MonoBehaviour:
     NestedEntity: []
     PlayerCamera: []
     PlayerTag: []
+    Projectile: []
     SpawnPoint: []
     Weapon: []
     CharacterController2D: []
@@ -191,12 +193,14 @@ MonoBehaviour:
   - Aim: []
     CharacterConfig: []
     EntityRoot: []
+    Grenade: []
     Health: []
     Inventory: []
     Item: []
     NestedEntity: []
     PlayerCamera: []
     PlayerTag: []
+    Projectile: []
     SpawnPoint:
     - Data:
         IsBusy:
@@ -237,12 +241,14 @@ MonoBehaviour:
   - Aim: []
     CharacterConfig: []
     EntityRoot: []
+    Grenade: []
     Health: []
     Inventory: []
     Item: []
     NestedEntity: []
     PlayerCamera: []
     PlayerTag: []
+    Projectile: []
     SpawnPoint:
     - Data:
         IsBusy:
@@ -283,12 +289,14 @@ MonoBehaviour:
   - Aim: []
     CharacterConfig: []
     EntityRoot: []
+    Grenade: []
     Health: []
     Inventory: []
     Item: []
     NestedEntity: []
     PlayerCamera: []
     PlayerTag: []
+    Projectile: []
     SpawnPoint:
     - Data:
         IsBusy:

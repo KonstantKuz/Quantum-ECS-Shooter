@@ -3,9 +3,3 @@ component Inventory
     Item ActiveItem;
     list<Item> Items;
 }
-
-component Item
-{
-    int Id;
-    entity_ref EntityRef;
-}

@@ -1,5 +1,4 @@
-﻿
-using Photon.Deterministic;
+﻿using Photon.Deterministic;
 
 namespace Quantum.App.Entity
 {
@@ -16,7 +15,7 @@ namespace Quantum.App.Entity
             var transform = f.Unsafe.GetPointer<Transform3D>(filter.EntityRef);
             var localPosition = filter.NestedEntity->LocalPosition;
             var localRotation = FPQuaternion.Euler(filter.NestedEntity->LocalRotation);
-            if (filter.NestedEntity->Parent.IsValid)
+            if (f.Exists(filter.NestedEntity->Parent))
             {
                 var parent = f.Unsafe.GetPointer<Transform3D>(filter.NestedEntity->Parent);
                 transform->Position = parent->TransformPoint(localPosition);

@@ -9265,6 +9265,12 @@ MonoBehaviour:
     CharacterPrototype:
       Id:
         Value: 2398606276259651229
+    Camera:
+      Id:
+        Value: 1854223616777622222
+    Weapons:
+    - Id:
+        Value: 500814676170294350
 --- !u!4 &1565167105
 Transform:
   m_ObjectHideFlags: 0

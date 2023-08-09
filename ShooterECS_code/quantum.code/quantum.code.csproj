@@ -73,18 +73,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\Character\CharacterConfigData.cs" />
+    <Compile Include="App\Combat\Aim\Aim.cs" />
+    <Compile Include="App\Combat\Animation\AnimationCommand.cs" />
+    <Compile Include="App\Combat\Animation\AttackCommand.cs" />
     <Compile Include="App\Combat\Damageable\DamageSystem.cs" />
     <Compile Include="App\Combat\Damageable\Health.cs" />
     <Compile Include="App\Combat\Weapon\Weapon.cs" />
     <Compile Include="App\Combat\Weapon\WeaponData.cs" />
+    <Compile Include="App\Combat\Weapon\WeaponFactory.cs" />
     <Compile Include="App\Combat\Weapon\WeaponSystem.cs" />
+    <Compile Include="App\Combat\Weapon\WeaponType.cs" />
     <Compile Include="App\Entity\EntityFactory.cs" />
     <Compile Include="App\Entity\NestedEntitySystem.cs" />
     <Compile Include="App\Inventory\Inventory.cs" />
     <Compile Include="App\Inventory\InventorySystem.cs" />
     <Compile Include="App\Inventory\Item.cs" />
-    <Compile Include="App\Player\Camera\PlayerAimSystem.cs" />
-    <Compile Include="App\Player\Camera\CameraRotationSystem.cs" />
+    <Compile Include="App\Player\Camera\PlayerCameraFilter.cs" />
+    <Compile Include="App\Player\Camera\OrbitalCameraSystem.cs" />
+    <Compile Include="App\Player\PlayerAimSystem.cs" />
     <Compile Include="App\Player\PlayerMovementSystem.cs" />
     <Compile Include="App\Player\PlayerSpawnSystem.cs" />
     <Compile Include="App\Player\PlayerAttackSystem.cs" />
@@ -106,17 +112,21 @@
   <ItemGroup>
     <Content Include="App\Character\CharacterConfig.qtn" />
     <Content Include="App\Combat\Aim\Aim.qtn" />
+    <Content Include="App\Combat\Animation\EntityAttackEvent.qtn" />
     <Content Include="App\Combat\Damageable\Damageable.qtn" />
+    <Content Include="App\Combat\Damageable\EntityDeadEvent.qtn" />
+    <Content Include="App\Combat\Projectile\Grenade.qtn" />
+    <Content Include="App\Combat\Projectile\Projectile.qtn" />
     <Content Include="App\Combat\Weapon\Weapon.qtn" />
     <Content Include="App\Entity\NestedEntity.qtn" />
     <Content Include="App\Inventory\Inventory.qtn" />
+    <Content Include="App\Inventory\Item.qtn" />
     <Content Include="App\Player\Camera\PlayerCamera.qtn" />
     <Content Include="App\Player\Input.qtn" />
     <Content Include="App\Player\PlayerTag.qtn" />
     <Content Include="App\Spawn\SpawnPoint.qtn" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\Player\WeaponSystem" />
     <Folder Include="Assets" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

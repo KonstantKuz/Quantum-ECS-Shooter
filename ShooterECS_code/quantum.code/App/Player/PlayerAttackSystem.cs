@@ -14,11 +14,10 @@ namespace Quantum.App.Player
         public override unsafe void Update(Frame f, ref PlayerFilter filter)
         {
             var input = f.GetPlayerInput(filter.PlayerTag->Player);
-            if(!input->Fire.WasPressed) return;
+            if(!input->Fire.IsDown) return;
             if (!f.Unsafe.TryGetPointer(filter.Inventory->ActiveItem.EntityRef, out Weapon* weapon)
             || !weapon->IsReady(f)) return;
-            
-            f.Signals.OnWeaponFire(weapon, filter.Aim);
+            f.Events.EntityAttack(filter.EntityRef);
         }
     }
 }

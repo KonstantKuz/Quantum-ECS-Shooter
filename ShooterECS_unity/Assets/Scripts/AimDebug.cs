@@ -18,7 +18,6 @@ public class AimDebug : MonoBehaviour
             
         var frame = QuantumRunner.Default.Game.Frames.Verified;
         var aim = frame.Get<Aim>(_entityView.EntityRef);
-        if(!aim.HasHit) return;
         _sphere.transform.position = aim.CurrentHit.Point.ToUnityVector3();
     }
 }

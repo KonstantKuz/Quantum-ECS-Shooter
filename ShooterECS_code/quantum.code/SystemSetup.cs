@@ -21,10 +21,10 @@ namespace Quantum {
         new Core.PlayerConnectedSystem(),
 
         // user systems go here 
-        new NestedEntitySystem(),
+        // new NestedEntitySystem(),
         new PlayerSpawnSystem(),
         new PlayerMovementSystem(),
-        new CameraRotationSystem(),
+        new OrbitalCameraSystem(),
         new PlayerAimSystem(),
         new InventorySystem(),
         new WeaponSystem(),

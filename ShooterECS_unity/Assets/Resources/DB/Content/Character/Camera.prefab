@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 164375064388300673}
+  - component: {fileID: 949219954812014700}
   - component: {fileID: 1230940634474166671}
   - component: {fileID: 807666745905046928}
   - component: {fileID: 6350147271643524201}
   - component: {fileID: 1217735897489259247}
-  - component: {fileID: 7495497238523409054}
   - component: {fileID: 139488962839125568}
   m_Layer: 0
   m_Name: Camera
@@ -36,6 +36,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &949219954812014700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140693673264459180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c129145e554ef4b8f20d9c1a338969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &1230940634474166671
 Camera:
   m_ObjectHideFlags: 0
@@ -247,10 +259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0008c51fe3af00b4da5d44f02d9b3dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BindBehaviour: 1
+  BindBehaviour: 0
   ManualDisposal: 0
   GameObjectNameIsEntityRef: 0
-  ErrorCorrectionRateMin: 3
+  ErrorCorrectionRateMin: 3.3
   ErrorCorrectionRateMax: 10
   ErrorPositionBlendStart: 0.25
   ErrorPositionBlendEnd: 1
@@ -265,34 +277,6 @@ MonoBehaviour:
   OnEntityDestroyed:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7495497238523409054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6140693673264459180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcdcd19a93cd9e348964b412e44f1ee5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Prototype:
-    Parent: {fileID: 0}
-    LocalPosition:
-      X:
-        RawValue: 65536
-      Y:
-        RawValue: 131072
-      Z:
-        RawValue: -131072
-    LocalRotation:
-      X:
-        RawValue: 0
-      Y:
-        RawValue: -327680
-      Z:
-        RawValue: 0
 --- !u!114 &139488962839125568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,11 +295,15 @@ MonoBehaviour:
     PlayerEntity: {fileID: 0}
     Offset:
       X:
-        RawValue: 65536
+        RawValue: -45875
       Y:
-        RawValue: 131072
+        RawValue: 98304
       Z:
-        RawValue: -131072
+        RawValue: -196608
+    PitchAngle:
+      RawValue: 0
+    YawAngle:
+      RawValue: 0
 --- !u!114 &-3290880871835340314
 MonoBehaviour:
   m_ObjectHideFlags: 0

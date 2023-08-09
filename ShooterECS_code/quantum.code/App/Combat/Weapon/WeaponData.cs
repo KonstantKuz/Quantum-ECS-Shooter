@@ -1,13 +1,13 @@
 ﻿using Photon.Deterministic;
+using Quantum.App.Combat.Weapon;
 
 namespace Quantum
 {
     partial class WeaponData
     {
-        public string Name;
+        public AssetRefEntityPrototype Prototype;
+        public WeaponType WeaponType;
         public FP Damage;
         public FP FireRate;
-
-        public int Id => Name.GetHashCode();
     }
 }

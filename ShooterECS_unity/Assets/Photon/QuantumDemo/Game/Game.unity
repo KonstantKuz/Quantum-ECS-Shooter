@@ -443,6 +443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80a0dde3922e0f47b2e12ce66a4cfdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 3
+  period: 2
 --- !u!1 &394500852
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,8 +497,6 @@ MonoBehaviour:
       Id:
         Value: 1854223616777622222
     Weapons:
-    - Id:
-        Value: 1147139723015918425
     - Id:
         Value: 500814676170294350
   PreloadAddressables: 0

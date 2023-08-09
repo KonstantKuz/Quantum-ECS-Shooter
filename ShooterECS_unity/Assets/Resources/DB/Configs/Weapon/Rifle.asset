@@ -17,8 +17,11 @@ MonoBehaviour:
       Path: Resources/DB/Configs/Weapon/Rifle
       Guid:
         Value: 500814676170294350
-    Name: Rifle
+    Prototype:
+      Id:
+        Value: 0
+    WeaponType: 0
     Damage:
       RawValue: 327680
     FireRate:
-      RawValue: 32768
+      RawValue: 3276

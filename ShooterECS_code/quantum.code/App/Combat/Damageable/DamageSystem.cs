@@ -9,8 +9,20 @@
             targetHealth->Current -= damageInfo.Value;
             if (targetHealth->IsDead)
             {
-                f.Destroy(target);
+                OnTargetIsDead(f, target);
             }
+        }
+
+        private void OnTargetIsDead(Frame frame, EntityRef target)
+        {
+            if (!frame.TryGet(target, out PlayerTag playerTag))
+            {
+                frame.Destroy(target);
+                return;
+            }
+
+            frame.Remove<CharacterController3D>(target);
+            frame.Events.EntityDead(target);
         }
     }
 }

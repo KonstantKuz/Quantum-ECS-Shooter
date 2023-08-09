@@ -6,4 +6,4 @@ component Weapon
 
 asset WeaponData;
 
-signal OnWeaponFire(Weapon* weapon, Aim* aim);
+signal OnWeaponFire(Weapon* weapon, Aim aim);

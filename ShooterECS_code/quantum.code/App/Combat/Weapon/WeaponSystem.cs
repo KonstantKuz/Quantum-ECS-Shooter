@@ -1,22 +1,61 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using Quantum.App.Combat.Animation;
+
 namespace Quantum.App.Combat.Weapon
 {
     public class WeaponSystem : SystemMainThread, ISignalOnWeaponFire
     {
-        public unsafe void OnWeaponFire(Frame f, Quantum.Weapon* weapon, Aim* aim)
+        private unsafe delegate void FireHandler(Frame f, Quantum.Weapon* weapon, Aim aim);
+
+        private static readonly unsafe Dictionary<WeaponType, FireHandler> _fireHandlers = new()
         {
-            var weaponData = f.FindAsset<WeaponData>(weapon->Data.Id);
-            if(!weapon->IsReady(f) || !aim->HasHit) return;
+            {WeaponType.Raycast, RaycastFire},
+            {WeaponType.Projectile, ProjectileFire}
+        };
+
+        public unsafe void OnWeaponFire(Frame f, Quantum.Weapon* weapon, Aim aim)
+        {
+            if(!weapon->IsReady(f)) return;
+            var data = f.FindAsset<WeaponData>(weapon->Data.Id);
+            _fireHandlers[data.WeaponType].Invoke(f, weapon, aim);
+        }
+
+        private static unsafe void RaycastFire(Frame frame, Quantum.Weapon* weapon, Aim aim)
+        {
             weapon->OnFire();
+            if (!aim.HasHit) return;
+            var weaponData = frame.FindAsset<WeaponData>(weapon->Data.Id);
             var damageInfo = new DamageInfo { Value = weaponData.Damage };
-            f.Signals.OnDamage(aim->CurrentHit.Entity, damageInfo);
+            frame.Signals.OnDamage(aim.CurrentHit.Entity, damageInfo);
+        }
+
+        private static unsafe void ProjectileFire(Frame frame, Quantum.Weapon* weapon, Aim aim)
+        {
+            throw new NotImplementedException();
         }
         
-        public override unsafe void Update(Frame f)
+        public override void Update(Frame f)
         {
-            foreach (var weapon in f.Unsafe.GetComponentBlockIterator<Quantum.Weapon>())
+            UpdateWeaponTimers(f);
+            ExecuteFireCommands(f);
+        }
+
+        private unsafe void UpdateWeaponTimers(Frame frame)
+        {
+            foreach (var weapon in frame.Unsafe.GetComponentBlockIterator<Quantum.Weapon>())
             {
-                weapon.Component->FireTimer += f.DeltaTime;
+                weapon.Component->FireTimer += frame.DeltaTime;
+            }
+        }
+
+        private unsafe void ExecuteFireCommands(Frame frame)
+        {
+            for (int i = 0; i < frame.PlayerCount; i++)
+            {
+                var command = frame.GetPlayerCommand(i) as AttackCommand;
+                if(command == null) continue;
+                OnWeaponFire(frame, command.GetWeapon(frame), command.GetAim(frame));
             }
         }
     }

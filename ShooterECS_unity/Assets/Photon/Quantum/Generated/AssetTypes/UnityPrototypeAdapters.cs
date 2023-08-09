@@ -35,7 +35,7 @@ namespace Quantum.Prototypes.Unity {
   [System.SerializableAttribute()]
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.Item))]
   public class Item_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.Item_Prototype> {
-    public System.Int32 Id;
+    public System.Int64 Id;
     [Quantum.LocalReference]
     public global::EntityPrototype EntityRef;
 
@@ -70,6 +70,7 @@ namespace Quantum.Prototypes.Unity {
     public global::EntityPrototype PlayerEntity;
     public Photon.Deterministic.FPVector3 Offset;
     public Photon.Deterministic.FP PitchAngle;
+    public Photon.Deterministic.FP YawAngle;
 
     public sealed override Quantum.Prototypes.PlayerCamera_Prototype Convert(EntityPrototypeConverter converter) {
       var result = new Quantum.Prototypes.PlayerCamera_Prototype();
@@ -77,6 +78,7 @@ namespace Quantum.Prototypes.Unity {
       converter.Convert(this.PlayerEntity, out result.PlayerEntity);
       result.Offset = this.Offset;
       result.PitchAngle = this.PitchAngle;
+      result.YawAngle = this.YawAngle;
       return result;
     }
   }

@@ -56,16 +56,6 @@ MonoBehaviour:
         Id:
           Value: 1128982389842898550
       ResourcePath: DB/Configs/Player/DefaultCharacterConfigData
-    - Path: Resources/DB/Configs/Weapon/Pistol
-      AssetRef:
-        Id:
-          Value: 1147139723015918425
-      ResourcePath: DB/Configs/Weapon/Pistol
-    - Path: Resources/DB/Content/Character/PlayerCharacter|EntityView
-      AssetRef:
-        Id:
-          Value: 1339898155423276081
-      ResourcePath: DB/Content/Character/PlayerCharacter
     - Path: Resources/DB/Map1
       AssetRef:
         Id:
@@ -85,4 +75,14 @@ MonoBehaviour:
       AssetRef:
         Id:
           Value: 2398606276259651229
+      ResourcePath: DB/Content/Character/PlayerCharacter
+    - Path: Resources/DB/Content/Character/CyborgView Variant|EntityView
+      AssetRef:
+        Id:
+          Value: 3518821692460376475
+      ResourcePath: DB/Content/Character/CyborgView Variant
+    - Path: Resources/DB/Content/Character/PlayerCharacter|EntityView
+      AssetRef:
+        Id:
+          Value: 4522383464735232944
       ResourcePath: DB/Content/Character/PlayerCharacter
