@@ -568,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80a0dde3922e0f47b2e12ce66a4cfdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensitivity: 20
   amplitude: 3
   period: 2
 --- !u!1 &394500852

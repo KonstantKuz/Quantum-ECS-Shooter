@@ -2,6 +2,6 @@ input
 {
     button Jump;
     button Fire;
-    FPVector2 Direction;
-    FPVector2 MouseInput;
+    FPVector2 MoveInput;
+    FPVector2 LookInput;
 }

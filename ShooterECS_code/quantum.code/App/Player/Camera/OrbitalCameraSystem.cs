@@ -13,9 +13,9 @@ namespace Quantum.App.Player.Camera
             var configId = f.Unsafe.GetPointer<CharacterConfig>(filter.PlayerCamera->PlayerEntity)->Data.Id;
             var data = f.FindAsset<CharacterConfigData>(configId);
 
-            filter.PlayerCamera->PitchAngle -= input->MouseInput.Y * data.RotationSpeed;
+            filter.PlayerCamera->PitchAngle -= input->LookInput.Y * data.RotationSpeed;
             filter.PlayerCamera->PitchAngle = FPMath.Clamp(filter.PlayerCamera->PitchAngle, -MAX_ANGLE, MAX_ANGLE);
-            filter.PlayerCamera->YawAngle += input->MouseInput.X * data.RotationSpeed;
+            filter.PlayerCamera->YawAngle += input->LookInput.X * data.RotationSpeed;
 
             var cameraTransform = f.Unsafe.GetPointer<Transform3D>(filter.Entity);
             var playerTransform = f.Unsafe.GetPointer<Transform3D>(filter.PlayerCamera->PlayerEntity);

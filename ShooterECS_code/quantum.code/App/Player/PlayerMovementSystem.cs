@@ -17,8 +17,8 @@ namespace Quantum.App.Player
             if (input->Jump.WasPressed) filter.CharacterController->Jump(f);
             var playerTransform = f.Unsafe.GetPointer<Transform3D>(filter.Entity);
             var data = f.FindAsset<CharacterConfigData>(filter.CharacterConfig->Data.Id);
-            playerTransform->Rotate(playerTransform->Up, input->MouseInput.X * data.RotationSpeed);
-            filter.CharacterController->Move(f, filter.Entity, playerTransform->Rotation * input->Direction.XOY);
+            playerTransform->Rotate(playerTransform->Up, input->LookInput.X * data.RotationSpeed);
+            filter.CharacterController->Move(f, filter.Entity, playerTransform->Rotation * input->MoveInput.XOY);
         }
     }
 }

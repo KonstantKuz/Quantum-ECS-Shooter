@@ -4,7 +4,6 @@ using UnityEngine;
 public class LookInputWrapper
 {
     public Vector2 InputDelta { get; private set; }
-    public Vector2 InputDeltaNormalized { get; private set; }
 
     private Vector2 lastMousePosition = Vector2.zero;
 
@@ -13,25 +12,41 @@ public class LookInputWrapper
 
     public void UpdateInput()
     {
+#if UNITY_EDITOR
+        HandleInput(Input.mousePosition, Input.GetMouseButtonDown(0), Input.GetMouseButton(0));
+#elif UNITY_ANDROID || UNITY_IOS
+        foreach (var touch in Input.touches)
+        {
+            HandleInput(touch.position, touch.phase == TouchPhase.Began, touch.phase == TouchPhase.Moved);
+        }
+#endif
+    }
+
+    private void HandleInput(Vector2 position, bool isClick, bool isMove)
+    {
+        if (position.x < Screen.width / 2)
+        {
+            InputDelta = Vector2.zero;
+            return;
+        }
+        
         InputDelta = Vector2.zero;
-        InputDeltaNormalized = Vector2.zero;
         Vector2 deltaMove = Vector2.zero;
 
-        if (Input.GetMouseButtonDown(0))
+        if (isClick)
         {
-            lastMousePosition = Camera.ScreenToViewportPoint(Input.mousePosition);
+            lastMousePosition = Camera.ScreenToViewportPoint(position);
             lastMousePosition -= new Vector2(0.5f, 0.5f);
         }
 
-        if (Input.GetMouseButton(0))
+        if (isMove)
         {
-            deltaMove = (Vector2) Camera.ScreenToViewportPoint(Input.mousePosition) - lastMousePosition;
+            deltaMove = (Vector2) Camera.ScreenToViewportPoint(position) - lastMousePosition;
             deltaMove -= new Vector2(0.5f, 0.5f);
 
             InputDelta = deltaMove;
-            InputDeltaNormalized = deltaMove.normalized;
 
-            lastMousePosition = Camera.ScreenToViewportPoint(Input.mousePosition);
+            lastMousePosition = Camera.ScreenToViewportPoint(position);
             lastMousePosition -= new Vector2(0.5f, 0.5f);
         }
     }
