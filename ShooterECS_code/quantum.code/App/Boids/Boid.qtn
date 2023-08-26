@@ -1,0 +1,21 @@
+component Boid
+{
+        FPVector3 anchor;
+        FP maxDistanceFromAnchor;
+        int turnSpeed;
+        int maxSpeed;
+        FP cohesionRadius;
+        int maxBoids;
+        FP separationDistance;
+        FP cohesionCoefficient;
+        FP alignmentCoefficient;
+        FP separationCoefficient;
+        FP obstacleCheckDistance;
+        LayerMask boidsLayer;
+        LayerMask obstaclesLayer;
+
+        [HideInInspector] 
+        FPVector3 velocity;
+        [HideInInspector]
+        Hit3D ObstacleHit;
+}

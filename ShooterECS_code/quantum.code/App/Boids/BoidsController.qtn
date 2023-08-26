@@ -1,0 +1,11 @@
+singleton component BoidsController
+{
+    asset_ref<BoidControllerData> Data;
+    
+    [HideInInspector]
+    int CurrentStep;    
+    [HideInInspector]
+    list<Boid> Boids;
+}
+
+asset BoidControllerData;

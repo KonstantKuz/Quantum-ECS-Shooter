@@ -65,18 +65,24 @@ namespace Quantum.Prototypes.Unity {
   [System.SerializableAttribute()]
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.PlayerCamera))]
   public class PlayerCamera_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.PlayerCamera_Prototype> {
+    public Photon.Deterministic.FPVector3 Offset;
+    public System.Int32 PlayerLayer;
+    [Quantum.Inspector.HideInInspectorAttribute()]
     public Quantum.PlayerRef PlayerRef;
+    [Quantum.Inspector.HideInInspectorAttribute()]
     [Quantum.LocalReference]
     public global::EntityPrototype PlayerEntity;
-    public Photon.Deterministic.FPVector3 Offset;
+    [Quantum.Inspector.HideInInspectorAttribute()]
     public Photon.Deterministic.FP PitchAngle;
+    [Quantum.Inspector.HideInInspectorAttribute()]
     public Photon.Deterministic.FP YawAngle;
 
     public sealed override Quantum.Prototypes.PlayerCamera_Prototype Convert(EntityPrototypeConverter converter) {
       var result = new Quantum.Prototypes.PlayerCamera_Prototype();
+      result.Offset = this.Offset;
+      result.PlayerLayer = this.PlayerLayer;
       result.PlayerRef = this.PlayerRef;
       converter.Convert(this.PlayerEntity, out result.PlayerEntity);
-      result.Offset = this.Offset;
       result.PitchAngle = this.PitchAngle;
       result.YawAngle = this.YawAngle;
       return result;

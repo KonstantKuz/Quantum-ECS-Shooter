@@ -112,7 +112,8 @@ GameObject:
   - component: {fileID: 1119914007948561093}
   - component: {fileID: 2499802138118002615}
   - component: {fileID: 3889714495378609388}
-  m_Layer: 0
+  - component: {fileID: 2054948830072159155}
+  m_Layer: 3
   m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,16 +195,16 @@ MonoBehaviour:
         X:
           RawValue: 0
         Y:
-          RawValue: 65536
+          RawValue: 52428
         Z:
           RawValue: 0
       BoxExtents:
         X:
-          RawValue: 32768
+          RawValue: 19660
         Y:
-          RawValue: 65536
+          RawValue: 52428
         Z:
-          RawValue: 32768
+          RawValue: 19660
       RotationOffset:
         X:
           RawValue: 0
@@ -267,7 +268,7 @@ MonoBehaviour:
         UserTag: 0
         IsSetFromSourceCollider: 0
       IsSetFromSourceCollider: 0
-    Layer: 0
+    Layer: 3
     CallbackFlags:
       Value: 0
   PhysicsBody:
@@ -463,6 +464,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _regularView: {fileID: 7489555038214319080}
   _deadView: {fileID: 244213692852368759}
+--- !u!114 &2054948830072159155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337179774348322912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b2fe979457e7c4bb3bdbbba01bfe22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prototype:
+    Layer: 6
+    CheckDistance:
+      RawValue: 32768
+    SnapForce:
+      RawValue: 655360
+    JumpWaitTime:
+      RawValue: 32768
+    JumpWaitTimer:
+      RawValue: 0
+    IsActive:
+      Value: 0
 --- !u!1001 &6484570480938987013
 PrefabInstance:
   m_ObjectHideFlags: 0

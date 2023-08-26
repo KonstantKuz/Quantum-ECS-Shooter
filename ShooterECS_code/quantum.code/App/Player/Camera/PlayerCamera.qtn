@@ -1,8 +1,14 @@
 component PlayerCamera
 {
-    player_ref PlayerRef;
-    entity_ref PlayerEntity;
     FPVector3 Offset;
+    int PlayerLayer;
+    
+    [HideInInspector]
+    player_ref PlayerRef;
+    [HideInInspector]
+    entity_ref PlayerEntity;
+    [HideInInspector]
     FP PitchAngle;
+    [HideInInspector]
     FP YawAngle;
 }

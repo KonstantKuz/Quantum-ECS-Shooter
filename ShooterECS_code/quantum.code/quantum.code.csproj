@@ -72,7 +72,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\Boids\BoidMovementSystem.cs" />
+    <Compile Include="App\Boids\BoidPrototypeRef.cs" />
     <Compile Include="App\Character\CharacterConfigData.cs" />
+    <Compile Include="App\Character\WallRunSystem.cs" />
     <Compile Include="App\Combat\Aim\Aim.cs" />
     <Compile Include="App\Combat\Animation\AnimationCommand.cs" />
     <Compile Include="App\Combat\Animation\AttackCommand.cs" />
@@ -110,7 +113,11 @@
     <EmbeddedResource Include="db.json" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Boids\Boid.qtn" />
+    <Content Include="App\Boids\BoidsController.qtn" />
+    <Content Include="App\Boids\SwormCenter.qtn" />
     <Content Include="App\Character\CharacterConfig.qtn" />
+    <Content Include="App\Character\WallRun.qtn" />
     <Content Include="App\Combat\Aim\Aim.qtn" />
     <Content Include="App\Combat\Animation\EntityAttackEvent.qtn" />
     <Content Include="App\Combat\Damageable\Damageable.qtn" />

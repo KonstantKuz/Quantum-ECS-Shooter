@@ -1,4 +1,5 @@
-﻿using Quantum.App.Combat.Damageable;
+﻿using Quantum.App.Boids;
+using Quantum.App.Combat.Damageable;
 using Quantum.App.Combat.Weapon;
 using Quantum.App.Entity;
 using Quantum.App.Inventory;
@@ -24,12 +25,14 @@ namespace Quantum {
         // new NestedEntitySystem(),
         new PlayerSpawnSystem(),
         new PlayerMovementSystem(),
+        new WallRunSystem(),
         new OrbitalCameraSystem(),
         new PlayerAimSystem(),
         new InventorySystem(),
         new WeaponSystem(),
         new PlayerAttackSystem(),
         new DamageSystem(),
+        new BoidMovementSystem()
       };
     }
   }

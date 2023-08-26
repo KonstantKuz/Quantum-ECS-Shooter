@@ -1,0 +1,12 @@
+component WallRun
+{
+    int Layer;
+    FP CheckDistance;
+    FP SnapForce;
+    FP JumpWaitTime;
+    
+    [HideInInspector]
+    FP JumpWaitTimer;
+    [HideInInspector]
+    bool IsActive;
+}

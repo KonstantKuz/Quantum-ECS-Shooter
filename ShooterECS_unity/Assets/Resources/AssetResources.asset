@@ -41,6 +41,16 @@ MonoBehaviour:
         Id:
           Value: 5
       ResourcePath: DB/Configs/SimulationConfig
+    - Path: Resources/DB/Content/BoidController
+      AssetRef:
+        Id:
+          Value: 167628491778920048
+      ResourcePath: DB/Content/BoidController
+    - Path: Resources/DB/Content/Boid|EntityView
+      AssetRef:
+        Id:
+          Value: 299091585969663056
+      ResourcePath: DB/Content/Boid
     - Path: Resources/DB/Configs/Weapon/Rifle
       AssetRef:
         Id:
@@ -76,6 +86,11 @@ MonoBehaviour:
         Id:
           Value: 2398606276259651229
       ResourcePath: DB/Content/Character/PlayerCharacter
+    - Path: Resources/DB/Content/Boid|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 2804908116659573160
+      ResourcePath: DB/Content/Boid
     - Path: Resources/DB/Content/Character/CyborgView Variant|EntityView
       AssetRef:
         Id:
